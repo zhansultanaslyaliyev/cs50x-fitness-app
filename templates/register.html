@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="form-card">
+    <h2>Register</h2>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.username.label }}: {{ form.username(placeholder="Enter username") }}
+        </div>
+        <div>
+            {{ form.password.label }}: {{ form.password(placeholder="Enter password") }}
+        </div>
+        <button type="submit">Register</button>
+    </form>
+</div>
+{% endblock %}

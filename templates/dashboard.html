@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card">
+    <h2>Calorie Calculator</h2>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="input-row">
+            <div>
+                {{ form.age.label }}: {{ form.age(placeholder="e.g., 30") }}
+            </div>
+            <div>
+                {{ form.gender.label }}: {{ form.gender }}
+            </div>
+        </div>
+        <div class="input-row">
+            <div>
+                {{ form.height.label }}: {{ form.height(placeholder="e.g., 170.5") }}
+            </div>
+            <div>
+                {{ form.weight.label }}: {{ form.weight(placeholder="e.g., 70.0") }}
+            </div>
+        </div>
+        <div>
+            {{ form.activity.label }}: {{ form.activity }}
+        </div>
+        <div>
+            {{ form.goal.label }}: {{ form.goal }}
+        </div>
+        <button type="submit">Calculate</button>
+    </form>
+    {% if calories %}
+        <h3>You need about {{ calories }} calories/day</h3>
+    {% endif %}
+</div>
+{% if profiles %}
+<div class="card">
+    <h2>Your Profile History</h2>
+    <table>
+        <tr>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Height (cm)</th>
+            <th>Weight (kg)</th>
+            <th>Activity</th>
+            <th>Goal</th>
+        </tr>
+        {% for profile in profiles %}
+            <tr>
+                <td>{{ profile.age }}</td>
+                <td>{{ profile.gender | capitalize }}</td>
+                <td>{{ profile.height }}</td>
+                <td>{{ profile.weight }}</td>
+                <td>{{ profile.activity | replace('_', ' ') | capitalize }}</td>
+                <td>{{ profile.goal | replace('_', ' ') | capitalize }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endif %}
+{% endblock %}
