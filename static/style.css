@@ -1,0 +1,118 @@
+/*
+  Light, comfortable design for the CS50x Flask Fitness App
+  - White and soft blue palette
+  - Clean and simple UI
+*/
+
+:root{
+  --bg: #f9fafc;
+  --panel: #ffffff;
+  --text: #1e293b;
+  --muted: #64748b;
+  --accent: #3b82f6;     /* blue */
+  --accent-strong: #2563eb;
+  --danger: #ef4444;
+  --success: #22c55e;
+  --ring: #3b82f633;
+  --radius: 14px;
+  --shadow: 0 6px 16px rgba(0,0,0,.08);
+}
+
+/* Reset */
+*{ box-sizing: border-box; }
+html,body{ height: 100%; }
+body{
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.55;
+}
+
+/* Layout */
+.wrapper{ max-width: 880px; margin: 0 auto; padding: 32px 20px 60px; }
+
+/* Top nav */
+nav{
+  position: sticky; top: 0; z-index: 10;
+  backdrop-filter: saturate(180%) blur(8px);
+  background: #ffffffcc;
+  border-bottom: 1px solid #e2e8f0;
+}
+nav .inner{ max-width: 880px; margin: 0 auto; padding: 14px 20px; display:flex; gap:16px; align-items:center; }
+nav a{
+  text-decoration: none; color: var(--text);
+  padding: 8px 12px; border-radius: 8px; transition: background .2s ease, color .2s ease;
+}
+nav a:hover{ background: #f1f5f9; color: var(--accent-strong); }
+
+hr{ border: none; height: 1px; background: #e2e8f0; margin: 0; }
+
+/* Panels */
+.card, .form-card{
+  background: var(--panel);
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 22px;
+}
+
+h1,h2,h3{ line-height: 1.25; margin: 10px 0 14px; font-weight: 600; }
+h1{ font-size: clamp(24px, 3.2vw, 32px); color: var(--accent-strong); }
+h2{ font-size: clamp(20px, 2.6vw, 26px); }
+h3{ font-size: clamp(18px, 2.2vw, 22px); }
+
+.muted{ color: var(--muted); }
+
+/* Forms */
+form{ display: grid; gap: 14px; }
+.input-row{ display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 640px){ .input-row{ grid-template-columns: 1fr; } }
+
+input[type="text"], input[type="password"], input[type="number"], select{
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  color: var(--text);
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+input:focus, select:focus{
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--ring);
+}
+
+button, .btn{
+  appearance: none;
+  border: none; cursor: pointer; user-select: none;
+  padding: 12px 18px; border-radius: 10px; font-weight: 600;
+  background: linear-gradient(180deg, var(--accent), var(--accent-strong));
+  color: white; box-shadow: 0 4px 12px rgba(37,99,235,.25);
+  transition: transform .05s ease, box-shadow .2s ease;
+}
+button:hover{ filter: brightness(1.05); }
+button:active{ transform: translateY(1px); box-shadow: 0 2px 8px rgba(37,99,235,.3); }
+
+.btn-secondary{
+  background: #f1f5f9;
+  color: var(--text);
+  border: 1px solid #cbd5e1;
+  box-shadow: none;
+}
+
+/* Flash messages */
+.flash{ padding: 12px 14px; border-radius: 10px; border: 1px solid transparent; }
+.flash.success{ background: #dcfce7; border-color: #86efac; color: #166534; }
+.flash.error{ background: #fee2e2; border-color: #fca5a5; color: #991b1b; }
+
+/* Tables */
+table{ width: 100%; border-collapse: collapse; border-radius: 10px; overflow: hidden; }
+th, td{ padding: 12px 14px; text-align: left; }
+th{ background: #f1f5f9; font-weight: 600; }
+tr + tr td{ border-top: 1px solid #e2e8f0; }
+
+/* Footer */
+footer{ margin-top: 40px; color: var(--muted); text-align:center; font-size: .9rem; }
