@@ -123,4 +123,3 @@ With more time, I’d enhance the app by:
 ## Conclusion
 The Fitness App is the culmination of my CS50x journey, integrating **Python**, **Flask**, **SQL**, **HTML**, and **CSS** from Lectures 6–9. I’m proud of building a secure, functional, and visually appealing app from scratch, overcoming challenges like database setup and form validation. This project demonstrates my ability to apply CS50x concepts to a real-world problem, creating a tool that could genuinely help users with fitness goals. I hope you enjoy exploring it as much as I enjoyed building it!
 
-*Word Count: ~750 words*
